@@ -15,8 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="prefix=reveal.js/css/reveal.css">
-<link rel="stylesheet" href="prefix=reveal.js/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -24,14 +24,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'prefix=reveal.js/css/print/pdf.css';
+        link.href = 'reveal.js/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="prefix=reveal.js/lib/js/html5shiv.js"></script>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Loading the mathjax macro -->
@@ -11821,31 +11821,24 @@ a.anchor-link {
 
 <div class="reveal">
 <div class="slides">
-<section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">graphlab</span>
-<span class="kn">from</span> <span class="nn">graphlab</span> <span class="kn">import</span> <span class="n">aggregate</span> <span class="k">as</span> <span class="n">agg</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">import</span> <span class="nn">community</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
+<section><section><script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Code view off (click to show)')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Code view on (click to hide)')
+    }
+    code_shown = !code_shown
+  }
 
-</div>
-</div>
-</div>
-
-</div></section></section><section><section>
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Code view off (click to show)"></form></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11859,7 +11852,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">authors</span> <span class="o">=</span> <span class="n">graphlab</span><span class="o">.</span><span class="n">SFrame</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;170331_PURE_Data_Challenge/PURE Data Challenge/authors.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;NA&#39;</span><span class="p">,</span><span class="s">&#39;NULL&#39;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
@@ -11892,6 +11885,87 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;./publication_net_links_dict.pkl&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">_pub_links</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">([</span><span class="n">author</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">pub_authors</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">column_name</span><span class="o">=</span><span class="s">&#39;PUBLICATION_ID&#39;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="n">link</span><span class="p">)[</span><span class="s">&#39;authors&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">pub_authors</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">column_name</span><span class="o">=</span><span class="s">&#39;PUBLICATION_ID&#39;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="n">link</span><span class="p">)[</span><span class="s">&#39;authors&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span> <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">_pub_links</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-35-076fa2902793&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>weights <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>len<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>author <span class="ansi-green-fg">for</span> author <span class="ansi-green-fg">in</span> pub_authors<span class="ansi-blue-fg">.</span>filter_by<span class="ansi-blue-fg">(</span>column_name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;PUBLICATION_ID&#39;</span><span class="ansi-blue-fg">,</span>values<span class="ansi-blue-fg">=</span>link<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;authors&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-green-fg">if</span> author <span class="ansi-green-fg">in</span> pub_authors<span class="ansi-blue-fg">.</span>filter_by<span class="ansi-blue-fg">(</span>column_name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;PUBLICATION_ID&#39;</span><span class="ansi-blue-fg">,</span>values<span class="ansi-blue-fg">=</span>link<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;authors&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> link <span class="ansi-green-fg">in</span> _pub_links<span class="ansi-blue-fg">]</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python2.7/dist-packages/graphlab/data_structures/sframe.pyc</span> in <span class="ansi-cyan-fg">filter_by</span><span class="ansi-blue-fg">(self, values, column_name, exclude)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4861</span>         <span class="ansi-red-fg"># Make sure the values list has unique values, or else join will not</span>
+<span class="ansi-green-intense-fg ansi-bold">   4862</span>         <span class="ansi-red-fg"># filter.</span>
+<span class="ansi-green-fg">-&gt; 4863</span><span class="ansi-red-fg">         </span>value_sf <span class="ansi-blue-fg">=</span> value_sf<span class="ansi-blue-fg">.</span>groupby<span class="ansi-blue-fg">(</span>column_name<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4864</span> 
+<span class="ansi-green-intense-fg ansi-bold">   4865</span>         <span class="ansi-green-fg">with</span> cython_context<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python2.7/dist-packages/graphlab/data_structures/sframe.pyc</span> in <span class="ansi-cyan-fg">groupby</span><span class="ansi-blue-fg">(self, key_columns, operations, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4538</span>             <span class="ansi-green-fg">if</span> column <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> my_column_names<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   4539</span>                 <span class="ansi-green-fg">raise</span> KeyError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Column &#34;</span> <span class="ansi-blue-fg">+</span> column <span class="ansi-blue-fg">+</span> <span class="ansi-blue-fg">&#34; does not exist in SFrame&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 4540</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">[</span>column<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> dict<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   4541</span>                 <span class="ansi-green-fg">raise</span> TypeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Cannot group on a dictionary column.&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4542</span>             key_columns_array<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>column<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python2.7/dist-packages/graphlab/data_structures/sarray.pyc</span> in <span class="ansi-cyan-fg">dtype</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1317</span>         int
+<span class="ansi-green-intense-fg ansi-bold">   1318</span>         &#34;&#34;&#34;
+<span class="ansi-green-fg">-&gt; 1319</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__proxy__<span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1320</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1321</span>     <span class="ansi-green-fg">def</span> head<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> n<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">publication_net_links</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">_pub_links</span><span class="p">,</span> <span class="n">weights</span><span class="p">))</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -48255,8 +48329,8 @@ require(
       waitSeconds: 15
     },
     [
-      "prefix=reveal.js/lib/js/head.min.js",
-      "prefix=reveal.js/js/reveal.js"
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
     ],
 
     function(head, Reveal){
@@ -48272,9 +48346,9 @@ require(
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: "prefix=reveal.js/lib/js/classList.js",
+                { src: "reveal.js/lib/js/classList.js",
                   condition: function() { return !document.body.classList; } },
-                { src: "prefix=reveal.js/plugin/notes/notes.js",
+                { src: "reveal.js/plugin/notes/notes.js",
                   async: true,
                   condition: function() { return !!document.body.classList; } }
             ]
