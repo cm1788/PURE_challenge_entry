@@ -8,7 +8,7 @@ df$newcol <- rep(1,nrow(df)) # make new column
 web=frame2webs(df, varnames=c("PCOM", "COM","newcol", "FREQ"))
 #plotweb(web$`1`, col.interaction='purple')
 plotweb(web$`1`, col.interaction='black', low.spacing=NULL, bor.col.interaction='black', col.high='blue', col.low='green', bor.col.high='black', bor.col.low='black', low.lablength=0, high.lablength=0)
-png("bipartite_communities.png", width=1800, height=1200)
+png("bipartite_communities.png", width=2400, height=1600)
 dx <- dev.cur()
 dev.set(2)
 dev.copy(which=dx)
@@ -20,13 +20,26 @@ df=read.csv(file='r_edges_orgs.csv')
 df$newcol <- rep(1,nrow(df)) # make new column
 web=frame2webs(df, varnames=c("PCOM", "orgid","newcol", "FREQ"))
 plotweb(web$`1`, col.interaction='black', low.spacing=NULL, bor.col.interaction='black', col.high='blue', col.low='green', bor.col.high='black', bor.col.low='black', low.lablength=0, high.lablength=0)
-png("bipartite_organisations.png", width=1800, height=1200)
+png("bipartite_organisations.png", width=2400, height=1600)
 dx <- dev.cur()
 dev.set(2)
 dev.copy(which=dx)
 dev.set(dx)
 dev.off()
 networklevel(web$`1`)
+
+
+df=read.csv(file='r_edges_connected_cpt.csv')
+df$newcol <- rep(1,nrow(df)) # make new column
+web=frame2webs(df, varnames=c("PCOM", "COM","newcol", "FREQ"))
+plotweb(web$`1`, col.interaction='black', low.spacing=NULL, bor.col.interaction='black', col.high='blue', col.low='green', bor.col.high='black', bor.col.low='black', low.lablength=0, high.lablength=0)
+png("bipartite_connected.png", width=2400, height=1600)
+dx <- dev.cur()
+dev.set(2)
+dev.copy(which=dx)
+dev.set(dx)
+dev.off()
+
 
 web=read.csv(file='r_edges_p9742.csv')
 plotweb(web[2], col.interaction='grey', low.spacing=0.1, bor.col.interaction='black', col.high='blue', col.low='green', bor.col.high='black', bor.col.low='black', low.lablength=0, high.lablength=0)
