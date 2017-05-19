@@ -1,0 +1,29 @@
+Communities:
+
+
+
+Organisations:
+                      connectance                     web asymmetry                 links per species            number of compartments 
+                     4.884799e-02                     -2.113821e-01                      2.869919e+00                      2.000000e+00 
+            compartment diversity               cluster coefficient                        nestedness               weighted nestedness 
+                     1.048353e+00                      2.684564e-02                      3.113311e+00                      5.105456e-01 
+                    weighted NODF    interaction strength asymmetry          specialisation asymmetry                   linkage density 
+                     8.592056e+00                     -1.053009e-01                      1.046827e-01                      4.715891e+00 
+             weighted connectance                      Fisher alpha                 Shannon diversity              interaction evenness 
+                     1.917029e-02                      1.216975e+02                      4.965237e+00                      5.183646e-01 
+     Alatalo interaction evenness                                H2              number.of.species.HL              number.of.species.LL 
+                     4.476057e-01                      6.839114e-01                      9.700000e+01                      1.490000e+02 
+mean.number.of.shared.partners.HL mean.number.of.shared.partners.LL            cluster.coefficient.HL            cluster.coefficient.LL 
+                     9.231100e-01                      4.714312e-01                      1.477798e-01                      1.632828e-01 
+  weighted.cluster.coefficient.HL   weighted.cluster.coefficient.LL                  niche.overlap.HL                  niche.overlap.LL 
+                     6.584215e-01                      7.712433e-01                      4.827036e-02                      4.021542e-02 
+                  togetherness.HL                   togetherness.LL                        C.score.HL                        C.score.LL 
+                     2.665383e-02                      1.632563e-02                      7.503517e-01                      8.273035e-01 
+                       V.ratio.HL                        V.ratio.LL                    discrepancy.HL                    discrepancy.LL 
+                     9.774552e+00                      9.432917e+00                      4.230000e+02                      4.030000e+02 
+              extinction.slope.HL               extinction.slope.LL                     robustness.HL                     robustness.LL 
+                     2.189138e+00                      3.364780e+00                      6.837602e-01                      7.538813e-01 
+    functional.complementarity.HL     functional.complementarity.LL              partner.diversity.HL              partner.diversity.LL 
+                     2.349581e+04                      2.649248e+04                      1.702215e+00                      1.034373e+00 
+                    generality.HL                  vulnerability.LL 
+                     6.130247e+00                      3.301535e+00 
